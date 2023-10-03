@@ -1,0 +1,5 @@
+localhost ansible_connection=local
+[app]
+ddp1
+ddp2
+ddp3

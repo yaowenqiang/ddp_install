@@ -41,6 +41,7 @@ Provisioning tools
 
 > pip install pipx
 > pipx install --include-deps ansible
+> pipx ensurepath
 
 ## Host patterns
 
@@ -114,8 +115,9 @@ ansible all  -b  -a  'useradd abc'
 
 ## Modules
 
+> python3 -m pip install --user ansible
 
-
+> ansible-doc --list
 
 
 
