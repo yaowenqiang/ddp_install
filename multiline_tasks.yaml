@@ -1,0 +1,20 @@
+- name: create dojo user
+  user: > 
+    name=dojo
+    uid=5000
+    home=/user/dojo
+    state=present
+ 
+- name: create dojo user
+  user: | 
+    name=dojo
+    uid=5000
+    home=/user/dojo
+    state=present
+
+- name: create dojo user
+  user:  
+    name: dojo
+    uid: 5000
+    home: /user/dojo
+    state: present
