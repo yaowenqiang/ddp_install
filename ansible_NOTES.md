@@ -296,3 +296,40 @@ shell
 
 ## Registered variables
 
+## the setup module
+
+> ansible localhost -m setup
+
+> ansible  localhost -m setup -a 'filter=ansible_os_family'
+> ansible  localhost -m setup --tree /tmp/facts
+> ansible  localhost  -m setup  -a 'filter=ansible*_mb'
+> ansible  localhost  -m setup  -a 'filter=ansible_memtotal_mb'
+> ansible  localhost  -m setup  -a 'filter=ansible_eth[0-2]'
+> ansible  localhost  -m setup  -a 'gather_subset=virtual'
+> ansible  localhost  -m setup  -a 'gather_subset=!all,!any,!network,!virtual'
+
+## using ansible galaxy
+
+# ansible vault
+
+
+> ansible-vault encrypt api_keys
+> ansible-vault view api_keys
+> ansible-playbook vault.yml --ask-vault-pass
+> ansible-playbook vault.yml --vault-password-files=~/.vault
+> ansible-vault --vault-password-file=~/.vault create vault/cred
+> ansible-vault rekey vault/cred
+> ansible-vault encrypt --vault-id staging@prompt filtpath
+> ansible-vault encrypt --vault-id ~/.vault filtpath
+> ansible-vault view --vault-id ~/.vault filtpath
+> ansible-vault rekey --vault-id @prompt filtpath
+> ansible-vault rekey --vault-id @prompt filtpath --new-vault-id newid
+> ansible-vault decrypt --vault-id @prompt filtpath --new-vault-id newid
+> ansible-vault encrypt_string --vault-id @prompt --name 'password' 
+
+
+# stracges
+
+
+
+
