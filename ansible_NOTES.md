@@ -276,3 +276,23 @@ shell
 > ansible-galaxy --help
 
 > ansible-playbook app.yml
+
+# templates
+
+## variable precedence
+
++ -e switch
++ rule vars
++ playbook vars
++ host vars
++ group vars
++ role defaults
+
+
+### hash behavior
+
+> ansible-config dump | grep -i hash
+
+
+## Registered variables
+

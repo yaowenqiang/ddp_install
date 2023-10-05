@@ -1,0 +1,10 @@
+---
+# tasks file for php
+  - name: install php packages
+    yum:
+      name: "{{ item  }}"
+      state: installed
+    with-item:
+      - php
+      - php-mysql
+    notify: restart apache service

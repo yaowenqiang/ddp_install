@@ -1,2 +1,3 @@
 ---
 # defaults file for apache
+  - version: 1.0
