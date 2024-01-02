@@ -10,12 +10,10 @@ Configuration management
 + chef
 + puppet
 
-
 Deployments and orchestration
 
 + fabric
 + capistrano
-
 
 Provisioning tools
 
@@ -47,10 +45,10 @@ Provisioning tools
 
 ### wildcards
 
-+  all
-+  *
-+  app*
-+  *.example.com
++ all
++ *
++ app*
++ *.example.com
 
 ### hosts/groups
 
@@ -78,10 +76,7 @@ Provisioning tools
 
 + '~(app|db).*'
 
-
-
 ### --limit
-
 
 > ansible all -m ping --limit lb
 > ansible all -m ping
@@ -96,14 +91,12 @@ Provisioning tools
 > ansible '~(app|db).*' -m ping 
 > ansible '~(app|db).*' -m ping  --limit app1
 
-
 [prod:children]
 app
 db
 lb
 
 running on one host at a time
-
 
 ansible all -f 1 -a 'free'
 
@@ -131,7 +124,6 @@ ansible all  -b  -a  'useradd abc'
 > ansible app -m yum -a 'name=vim stat=present'
 
 ### common modules
-
 
 Packages 
 
@@ -167,7 +159,6 @@ Commands
 + shell
 + expect
 
-
 #### add  group
 
 > ansible prod -m  group -b -a 'name=admin stat=present gid=7045'
@@ -194,14 +185,13 @@ command
 
 + does not use shell
 + does not have access to env
-+ ><  | ; & operators will not work
++ > <  | ; & operators will not work
 
 shell
 
 + invokes /bin/sh
 + has access to env, variables
-+ ><  | ; & operators will wor 
-
++ > <  | ; & operators will wor 
 
 > ansible app -m command -a 'free'
 > ansible app -m command -a 'free | grep -i swap'
@@ -209,7 +199,7 @@ shell
 > ansible app -m shell -a 'free' | grep  -i swap
 > ansible app -m shell -vvvv -a 'free' | grep  -i swap
 
-### create dir 
+### create dir
 
 > ansible app -m command -a 'mkdir /tmp/dir1' # command will fail if dir exists
 > ansible app -m command -a 'mkdir /tmp/dir1 creates=/tmp/dir1' # command will skip if dir exists
@@ -264,11 +254,9 @@ shell
 
 > ansible-playbook config.yml  --limit app
 
-
 # Roles
 
 ## ansible-galaxy
-
 
 > ansible-galaxy init --init-path roles/ apache
 
@@ -288,11 +276,9 @@ shell
 + group vars
 + role defaults
 
-
 ### hash behavior
 
 > ansible-config dump | grep -i hash
-
 
 ## Registered variables
 
@@ -312,7 +298,6 @@ shell
 
 # ansible vault
 
-
 > ansible-vault encrypt api_keys
 > ansible-vault view api_keys
 > ansible-playbook vault.yml --ask-vault-pass
@@ -327,9 +312,4 @@ shell
 > ansible-vault decrypt --vault-id @prompt filtpath --new-vault-id newid
 > ansible-vault encrypt_string --vault-id @prompt --name 'password' 
 
-
 # stracges
-
-
-
-
